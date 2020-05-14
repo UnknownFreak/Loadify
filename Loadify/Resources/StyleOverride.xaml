@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:treeListView="clr-namespace:TreeListView;assembly=TreeListView">
+    <Style
+        x:Key="VirtualizedMetroTreeListView"
+        BasedOn="{StaticResource MetroTreeListView}"
+        TargetType="treeListView:TreeListView">
+    </Style>
+</ResourceDictionary>

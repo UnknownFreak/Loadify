@@ -1,0 +1,97 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:treeListView="clr-namespace:TreeListView;assembly=TreeListView"
+    xmlns:dd="clr-namespace:GongSolutions.Wpf.DragDrop;assembly=GongSolutions.Wpf.DragDrop"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+    x:Class="Loadify.Pages.ModCollectionControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" Width="1206">
+    <Grid>
+        <treeListView:TreeListView x:Name="TreeView"
+                                   ChildrenPropertyName="Children"
+                                   Style="{StaticResource VirtualizedMetroTreeListView}"
+                                   SelectItemOnRightClick="True"
+                                   AllowDrop="True"
+                                   dd:DragDrop.IsDragSource="True"
+                                   dd:DragDrop.IsDropTarget="True"
+                                   dd:DragDrop.DropHandler="{Binding}"
+                                   SelectedItemChanged="TreeListView_SelectedItemChanged">
+            <treeListView:TreeListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="NewCollection" Header="New Collection" Click="NewCollection_Click"/>
+                    <MenuItem x:Name="DeleteCollection" Header="Delete Collection" Click="DeleteCollection_Click"/>
+                    <MenuItem x:Name="RenameCollection" Header="Rename Collection"/>
+                    <MenuItem x:Name="FlagOk" Header="Flag Ok" Click="FlagOk_Click"/>
+                </ContextMenu>
+            </treeListView:TreeListView.ContextMenu>
+            <treeListView:TreeListView.View>
+                <GridView>
+                    <GridViewColumn Header="Index" Width="50">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid Background="{Binding brush}">
+                                    <TextBlock Background="{Binding brush}" Text="{Binding Index}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Version" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid Background="{Binding brush}">
+                                    <iconPacks:PackIconModern Width="16" Height="16" Kind="{Binding IsCompatible}" Foreground="{Binding IconBrush}"/>
+                                    <TextBlock Background="{Binding brush}" Text="{Binding ModVersion}" HorizontalAlignment="Left" Padding="18,0,0,0"/>
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Mod/Collection Name" Width="380" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid Background="{Binding brush}">
+                                    <TextBox x:Name="EditCollectionName" Background="{Binding brush}" Text="{Binding Name}" IsHitTestVisible="{Binding AllowRename}" BorderBrush="{x:Null}" SelectionTextBrush="{x:Null}" SelectionBrush="{x:Null}" TextChanged="EditCollectionName_TextChanged" Tag="{Binding Index}" LostFocus="EditCollectionName_LostFocus">
+                                        <TextBox.Resources>
+                                            <Style TargetType="{x:Type TextBox}">
+                                                <Setter Property="Background" Value="Transparent"/>
+                                            </Style>
+                                        </TextBox.Resources>
+                                    </TextBox>
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Requirement Mod" Width="500">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid Background="{Binding brush}">
+                                    <ListBox ItemsSource="{Binding RequirementModColl}" Visibility="{Binding Visibility}" IsHitTestVisible="False" Background="Transparent">
+                                        <ListBox.Resources>
+                                            <Style TargetType="{x:Type ListBoxItem}">
+                                                <Setter Property="Background" Value="Transparent"/>
+                                            </Style>
+                                        </ListBox.Resources>
+                                    </ListBox>
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Enabled" Width="75">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid Background="{Binding brush}" Margin="2,0,0,0">
+                                    <Controls:ToggleSwitchButton IsChecked="{Binding IsEnabled}" HorizontalAlignment="Center" Checked="CheckBox_Click" Unchecked="CheckBox_Click"
+                                                                 Style="{StaticResource MahApps.Metro.Styles.ToggleSwitchButton.Win10}" OnSwitchBrush="#CC449936"/>
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <!--<GridViewColumn Header="Id" Width="75" DisplayMemberBinding="{Binding Id}"/>-->
+                </GridView>
+            </treeListView:TreeListView.View>
+        </treeListView:TreeListView>
+    </Grid>
+</UserControl>

@@ -1,0 +1,21 @@
+﻿<Page x:Class="Loadify.Pages.SettingsFrame.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SettingsPage">
+    <Grid>
+        <Label Content="Steamapps Directory" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,65,0,0"/>
+        <TextBox x:Name="Steamapps" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="340" Margin="0,91,0,0" ToolTip="Path to steamapps directory, used to launch the game from Loadify" IsEnabled="False"/>
+        <Label Content="Stellaris Documents Directory" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,16,0,0"/>
+        <TextBox x:Name="StellarisDir" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="340" Margin="0,42,0,0" ToolTip="The path to your Steallaris documents folder eg 'foo/Documents/.../Stellaris/" IsEnabled="False"/>
+        <Button Content="･･･" HorizontalAlignment="Left" Margin="345,42,0,0" VerticalAlignment="Top" Width="28" Height="18"/>
+        <Button Content="･･･" HorizontalAlignment="Left" Margin="345,92,0,0" VerticalAlignment="Top" Width="28" Height="18"/>
+        <CheckBox x:Name="Backup" Content="Backup Load Order" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,129,0,0" ToolTip="Create a backup save of the Load Order incase it get's overwritten by the stellaris Launcher." IsEnabled="False"/>
+        <CheckBox x:Name="BackupStellarisDir" Content="Save Backup Under Stellaris Documents Directory" HorizontalAlignment="Left" Margin="10,149,0,0" VerticalAlignment="Top" ToolTip="If unchecked saves the backup where the executable is located." IsEnabled="False"/>
+        <CheckBox x:Name="ReopenGame" Content="Reopen On Game Closed" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" ToolTip="Reopens the Loadify Tool when the game is closed." IsEnabled="False"/>
+        <Button x:Name="Back_Button" Content="Back" Margin="0,0,10,10" Click="Back_Button_Click" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom"/>
+    </Grid>
+</Page>

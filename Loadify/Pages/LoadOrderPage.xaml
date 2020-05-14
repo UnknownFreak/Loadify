@@ -1,0 +1,25 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Loadify.Pages"
+    x:Class="Loadify.Pages.LoadOrderPage"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1200"
+      Title="LoadOrderPage" Foreground="White">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Launch" Margin="0,64,0,0" FontSize="16" Height="39" HorizontalAlignment="Center" Width="200" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="Version" HorizontalAlignment="Right" Margin="0,12,117,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="49"/>
+        <Label x:Name="StellarisVersion" Content="x.x.x" HorizontalAlignment="Right" Margin="0,12,0,0" VerticalAlignment="Top" Width="112" Grid.Column="1" Height="26"/>
+
+        <Label Content="Checksum" HorizontalAlignment="Left" Margin="19,38,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="64"/>
+        <Label x:Name="StellarisChecksum" Content="sha256" HorizontalAlignment="Left" Margin="88,38,0,0" VerticalAlignment="Top" Width="112" Grid.Column="1" Height="26"/>
+        <local:ModCollectionControl x:Name="CollectionView" Margin="0,125,0,0" Width="Auto" Grid.ColumnSpan="3"/>
+    </Grid>
+</Page>
