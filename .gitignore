@@ -62,3 +62,4 @@ $RECYCLE.BIN/
 *.xml
 *.config
 Loadify/obj/
+Loadify/bin/Debug/collections.json
