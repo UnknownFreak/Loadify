@@ -53,13 +53,8 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Grid Background="{Binding brush}">
-                                    <TextBox x:Name="EditCollectionName" Background="{Binding brush}" Text="{Binding Name}" IsHitTestVisible="{Binding AllowRename}" BorderBrush="{x:Null}" SelectionTextBrush="{x:Null}" SelectionBrush="{x:Null}" TextChanged="EditCollectionName_TextChanged" Tag="{Binding Index}" LostFocus="EditCollectionName_LostFocus">
-                                        <TextBox.Resources>
-                                            <Style TargetType="{x:Type TextBox}">
-                                                <Setter Property="Background" Value="Transparent"/>
-                                            </Style>
-                                        </TextBox.Resources>
-                                    </TextBox>
+                                    <TextBox x:Name="EditCollectionName" Background="{Binding brush}" Text="{Binding Name}" IsHitTestVisible="{Binding AllowRename}" BorderBrush="{x:Null}" SelectionTextBrush="{x:Null}" SelectionBrush="{x:Null}" TextChanged="EditCollectionName_TextChanged" Tag="{Binding Index}" LostFocus="EditCollectionName_LostFocus"/>
+
                                 </Grid>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
