@@ -13,7 +13,7 @@ namespace Loadify.DataContracts
     {
         [DataMember(Name = "modCollection")]
         public List<Mod> ModsInCollection { get; set; }
-        [DataMember(Name = "disabled_dlcs")]
+        [DataMember(Name = "collection_name")]
         public string CollectionName { get; set; }
         [DataMember(Name = "is_enabled")]
         public bool Enabled { get; set; }
